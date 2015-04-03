@@ -14,14 +14,14 @@
 (defonce app-state {:text "Click me!"})
 
 (register-handler
-  :initialize
-  (fn [db _]
-    app-state))
+ :initialize
+ (fn [db _]
+   app-state))
 
 (register-sub
-  :text
-  (fn [db _]
-    (reaction (:text @db))))
+ :text
+ (fn [db _]
+   (reaction (:text @db))))
 
 (defn root []
   (let [text (subscribe [:text])]
